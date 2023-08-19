@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+        <div class="flag">
+            <span>BHARAT FLAG</span>
+        </div>
+        <div class="name">
+            DEVELOPED BY IKLASH KHAN
+        </div>
+   
+    <div class="container">
+        <h1>Generate a <br><span>Random Password</span></h1>
+        <div class="display">
+            <input type="text" id="password" placeholder="Enter the Password">
+            <img src="photo.webp" alt="" onclick="docopy()" >
+        </div>
+
+        <button  class="btn">Generate password</button>
+        </div>
+        <script>
+         
+            const password=document.getElementById('password');
+            const length=12;
+            const uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const lowercase="abcdefghijklmnopqrstuvwxyz";
+            const number="0123456789";
+            const symbol="@!({[$&@*-=/]})"
+
+            const bt=document.getElementsByClassName('btn')[0];
+
+            function createpass(){
+                let pass="";
+                while(length>pass.length){
+
+                    pass+=uppercase[Math.floor(Math.random()*uppercase.length)];
+                    pass+=lowercase[Math.floor(Math.random()*lowercase.length)];
+                    pass+=number[Math.floor(Math.random()*number.length)];
+                    pass+=symbol[Math.floor(Math.random()*symbol.length)];
+                }
+                password.value=pass;
+            }
+         bt.addEventListener("click",()=>{
+            createpass();
+         });
+         function docopy(){
+            password.select();
+            document.execCommand("copy");
+         } 
+   
+
+
+        </script>
+</body>
+</html>
